@@ -31,7 +31,7 @@ function getGallery(personajes) {
     personajes.forEach(personaje => {
         //Destructuramos el array y en una sola instruccción igualamos la variable comida
         //Elementos del array: id, nombrePlato e imagen
-        const { name, status, species ,image, origin } = personaje;
+        const { name, status, species ,image, origin, episode } = personaje;
         //Armamos la tarjeta base y con la iteración, podemos multiplicarla y la anexamos a la variable del código HTML
         html += `
         <div class="card mb-3">
