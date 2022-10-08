@@ -1,0 +1,44 @@
+@import url('./normalize.css');
+@import url('./circularLoading.css');
+@font-face {
+  font-family: myFirstFont;
+  src: url('../get_schwifty.ttf');
+}
+
+.flex{
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.flex-center{
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-column{
+  flex-direction: column;
+}
+
+ 
+h1 {
+  font-family: myFirstFont;
+  color: darkgreen;
+}
+
+.wrapper{
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #191919;
+  color: wheat;
+}
+
+.text-center{
+  text-align: center;
+}
+
+section{
+  margin: 8px;
+  min-height: 100px;
+}
