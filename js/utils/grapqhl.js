@@ -1,5 +1,5 @@
 export function parse(document, variables){
-  const [operationNameRaw] = document.match(/query.+\(/)
+  const [operationNameRaw] = document.match(/[query|mutation].+\(/)
 
     if(!operationNameRaw) throw new Error('Not Valid Query')
 
@@ -10,5 +10,4 @@ export function parse(document, variables){
     query: document,
     variables
   })
-
 }
