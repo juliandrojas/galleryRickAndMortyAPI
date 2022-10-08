@@ -69,7 +69,7 @@
 	margin: auto;
 	height: var(--loadderSize);
 	width: var(--loadderSize);
-	border: 3px solid rgba(255, 255, 255, .5);
+	border: 3px solid cyan;
 	border-radius: 50%;
 }
 

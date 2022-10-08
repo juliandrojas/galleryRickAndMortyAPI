@@ -1,5 +1,8 @@
 @import url('./normalize.css');
 @import url('./circularLoading.css');
+@import url('./cards.css');
+
+
 @font-face {
   font-family: myFirstFont;
   src: url('../get_schwifty.ttf');
@@ -7,7 +10,7 @@
 
 .flex{
   display: flex;
-  gap: 16px;
+  gap: 32px;
   flex-wrap: wrap;
 }
 
@@ -41,4 +44,11 @@ h1 {
 section{
   margin: 8px;
   min-height: 100px;
+}
+
+.elipsis{
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }

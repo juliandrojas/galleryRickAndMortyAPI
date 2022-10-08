@@ -27,7 +27,9 @@ class CreateGallery{
     const cardContainer = document.createElement('div')
     cardContainer.classList.add('flex')
     cardContainer.classList.add('flex-column')
+    cardContainer.classList.add('flex-center')
     cardContainer.classList.add('flex-between')
+    cardContainer.classList.add('card')
 
     children.forEach(child=>{
       if(child instanceof HTMLElement)
@@ -53,16 +55,25 @@ class CreateGallery{
   }
 
   createContent(...rest){
-    const mainContainer = document.createElement('div')
+    const mainContainer = document.createElement('ul')
     mainContainer.classList.add('flex')
     mainContainer.classList.add('flex-column')
     mainContainer.classList.add('flex-between')
+    mainContainer.classList.add('card-content')
 
     rest.forEach(info => {
+      const itemElement = document.createElement('li')
       const contentElement = document.createElement('p')
+      contentElement.classList.add('elipsis')
       contentElement.textContent = info
+      itemElement.appendChild(contentElement)
 
-      mainContainer.appendChild(contentElement)
+      const tootilpSpan = document.createElement('span')
+      tootilpSpan.classList.add('tooltiptext')
+      tootilpSpan.textContent = info
+
+      itemElement.appendChild(tootilpSpan)
+      mainContainer.appendChild(itemElement)
     })
 
     return mainContainer

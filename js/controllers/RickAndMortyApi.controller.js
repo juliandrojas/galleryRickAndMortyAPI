@@ -15,6 +15,7 @@ class RickAndMortyController{
    */
   getPrincipalGallery(){
     const service = this.#fetchService
+
     async function* createAsyncGenerator(){
       let globalNext = true
       let page = 1
@@ -22,10 +23,16 @@ class RickAndMortyController{
         const res = await service.graphqlQuery('/graphql', GET_GALLERY, {
           page
         })
-       
-        const data = await res.json()
 
-        const {data:{ characters: {info:{next}, results}}} = data
+        const {
+          data:{
+            characters: {
+              info:{next},
+              results
+            }
+          }
+        } = await res.json()
+
         globalNext = next
         page++
 
@@ -33,8 +40,7 @@ class RickAndMortyController{
       }
     }
 
-    if (!this.#generator)
-      this.#generator = createAsyncGenerator()
+    this.#generator ??= createAsyncGenerator()
     
     return this.#generator.next()
   }

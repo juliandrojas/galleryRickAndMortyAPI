@@ -14,4 +14,4 @@ export const GET_GALLERY = `query characters($page: Int){
       }
     }
   }
- }`
+}`

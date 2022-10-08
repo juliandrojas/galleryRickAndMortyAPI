@@ -1,3 +1,5 @@
+import { parse } from "../utils/grapqhl.js"
+
 class FetchAPI{
   #baseUrl
   #universalConfig
@@ -47,19 +49,11 @@ class FetchAPI{
    * @param  {any} variables
    */
   graphqlQuery(url, query, variables){
-    const [operationNameRaw] = query.match(/query.+\(/)
-
-    if(!operationNameRaw) throw new Error('Not Valid Query')
-
     return this.post(url, {
       headers: new Headers({
         "Content-Type": "application/json"
       }),
-      body: JSON.stringify({
-        operationName: operationNameRaw.replace(/query|\(/g, '').trim(),
-        query,
-        variables
-      })
+      body: parse(query, variables)
     })
   }
 }
