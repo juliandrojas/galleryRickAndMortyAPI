@@ -15,9 +15,13 @@
   min-height: 50%;
 }
 
-.card-content li{
+.card-content li, .name-container{
   width: 100%;
   position: relative;
+}
+
+.name-container{
+  text-align: center;
 }
 
 .img-container > img{
@@ -37,6 +41,6 @@
   z-index: 1;
 }
 
-.card-content li:hover .tooltiptext {
+.card-content li:hover .tooltiptext, .name-container:hover .tooltiptext {
   visibility: visible;
 }

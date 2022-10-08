@@ -79,11 +79,25 @@ class CreateGallery{
     return mainContainer
   }
 
+  crateName(name){
+    const nameContainer = document.createElement('div')
+    nameContainer.classList.add('name-container')
+    const nameElement = document.createElement('h3')
+    const tootilpSpan = document.createElement('span')
+    tootilpSpan.classList.add('tooltiptext')
+    tootilpSpan.textContent = name
+    nameElement.classList.add('elipsis')
+    nameElement.textContent = name
+    nameContainer.appendChild(nameElement)
+    nameContainer.appendChild(tootilpSpan)
+
+    return nameContainer
+  }
+
   addData(data){
     data?.forEach(({image,name,status,species, origin})=>{
       const imageElement = this.createImage(image, name + image)
       const cardContent =  this.createContent(
-        `Nombre: ${name}`,
         `Status: ${status}`,
         `Especie: ${species}`,
         `Origen: ${origin.dimension ?? 'Desconocido'}`
@@ -91,6 +105,7 @@ class CreateGallery{
       
       const card = this.createCard(
         imageElement,
+        this.crateName(name),
         cardContent
       )
       this.#mainContainer.appendChild(card)
